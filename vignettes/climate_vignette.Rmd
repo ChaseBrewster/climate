@@ -1,0 +1,66 @@
+---
+title: "climate_vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{climate_vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(climate)
+library(RColorBrewer) 
+
+```
+
+Example of calfire_stats function
+```{r}
+#load data included in the package
+data(calfires)
+
+#run the function using the calfires data and selecting a year between 2013 and 2019
+calfire_stats(fire_data = calfires, year = 2017)
+
+```
+
+Example of calfire_graph function
+```{r}
+#load data included in the package
+data(calfires)
+
+#run the function using the calfires data and selection a metric to use (an integer value, 1-6)
+#the metric values are explained in the documentation
+#the function requires RColorBrewer, which will install automatically upon running if you do not have it
+#do not allow R to restart to update the package
+help(calfire_graph)
+
+calfire_graph(fire_data = calfires, metric = 1)
+#metric 1 is total fires per year
+```
+
+Example of firedamage function
+```{r}
+help(firedamage)
+#input parameters include:
+#acres = acres burned
+#value = value of land burned
+#structures = structures damaged and destroyed
+#avgstructureval = average value of structures in the area
+#helicopters = helicopters used
+#days = days the fire burned
+#firecrews = number of crews used
+#injuries = number of injuries sustained
+#fatalities = number of fatalities
+
+#run the function, with input values
+#specific input values for a given fire can be found in calfires data
+#or you can make them up to see what a fire might cost
+firedamage(acres = 200000, value = 5000, structures = 20, avgstructureval = 100000, helicopters = 5, days = 5, firecrews = 8, injuries = 8, fatalities= 0)
+
+#result is in USD
+#This fire damage is ~ 1billion USD
+
+```
+

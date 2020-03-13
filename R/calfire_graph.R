@@ -19,10 +19,6 @@
 
 calfire_graph <- function(fire_data, metric){ #input data and metric to define what the graph will display
 
-  library(tidyverse) #load the tidyverse
-  install.packages("RColorBrewer") #install RColorBrewster in case you don't have it
-  library(RColorBrewer) #load rcolorbrewer
-
   metric = ifelse((metric != 1 & metric != 2 & metric != 3 & metric != 4 & metric != 5 & metric != 6), return("Metric must be an integer 1 through 6. See documentation for metric description."), metric)
   #metric must be an integer between 1 and 6 otherwise the function will not run
 

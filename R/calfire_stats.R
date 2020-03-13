@@ -10,7 +10,6 @@
 
 
 calfire_stats <- function(fire_data, year){ #input data and year to produce statistics
-  library(tidyverse) #load the tidyverse
 
   year = ifelse((year < 2013 & year > 2019), return("Year must be between 2013 and 2019"), year)
   #data is only for years 2013 - 2019, otherwise, function will not run

@@ -11,7 +11,8 @@
 
 calfire_stats <- function(fire_data, year){ #input data and year to produce statistics
 
-  year = ifelse((year < 2013 & year > 2019), return("Year must be between 2013 and 2019"), year)
+  year = ifelse((year < 2013), return("Year must be between 2013 and 2019"), year)
+  year = ifelse((year > 2019), return("Year must be between 2013 and 2019"), year)
   #data is only for years 2013 - 2019, otherwise, function will not run
 
   cal_fires <- fire_data %>%
@@ -33,11 +34,12 @@ calfire_stats <- function(fire_data, year){ #input data and year to produce stat
   #apply them
 
   cal_fires_list <- cal_fires %>%  #filter down results to the specific year selected by the user
-    filter(Year == year) %>%
-    list() #turn it into a list
+    filter(Year == year) #%>%
+    #list() #turn it into a list
 
   return(cal_fires_list) #return that list
 }
 
 #check results
-#calfire(fire_data = fires, year = 2017)
+#data(calfires)
+#calfire_stats(fire_data = calfires, year = 2017)

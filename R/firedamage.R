@@ -45,4 +45,4 @@ firedamage <- function(acres, value, structures, avgstructureval, helicopters, d
 }
 
 #test
-firedamage(acres = 100, value = 5000, structures = 20, avgstructureval = 100000, helicopters = 5, days = 5, firecrews = 8, injuries = 8, fatalities= 0)
+#firedamage(acres = 100, value = 5000, structures = 20, avgstructureval = 100000, helicopters = 5, days = 5, firecrews = 8, injuries = 8, fatalities= 0)
